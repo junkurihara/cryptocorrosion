@@ -4,7 +4,7 @@ use crate::soft::{x2, x4};
 use crate::types::*;
 use core::ops::*;
 use zerocopy::{AsBytes, FromBytes};
-use zerocopy_derive::{AsBytes, FromBytes, FromZeroes};
+use zerocopy_derive::{AsBytes as DeriveAsBytes, FromBytes as DeriveFromBytes, FromZeroes};
 
 #[repr(C)]
 #[derive(Clone, Copy, FromBytes, AsBytes, FromZeroes)]
