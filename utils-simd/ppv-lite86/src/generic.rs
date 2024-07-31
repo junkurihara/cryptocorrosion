@@ -7,7 +7,7 @@ use zerocopy::{AsBytes, FromBytes};
 use zerocopy_derive::{AsBytes as DeriveAsBytes, FromBytes as DeriveFromBytes, FromZeroes};
 
 #[repr(C)]
-#[derive(Clone, Copy, FromBytes, AsBytes, FromZeroes)]
+#[derive(Clone, Copy, DeriveFromBytes, DeriveAsBytes, FromZeroes)]
 pub union vec128_storage {
     d: [u32; 4],
     q: [u64; 2],
@@ -454,13 +454,13 @@ impl Machine for GenericMachine {
     }
 }
 
-#[derive(Copy, Clone, Debug, PartialEq, FromBytes, AsBytes, FromZeroes)]
+#[derive(Copy, Clone, Debug, PartialEq, DeriveFromBytes, DeriveAsBytes, FromZeroes)]
 #[repr(transparent)]
 pub struct u32x4_generic([u32; 4]);
-#[derive(Copy, Clone, Debug, PartialEq, FromBytes, AsBytes, FromZeroes)]
+#[derive(Copy, Clone, Debug, PartialEq, DeriveFromBytes, DeriveAsBytes, FromZeroes)]
 #[repr(transparent)]
 pub struct u64x2_generic([u64; 2]);
-#[derive(Copy, Clone, Debug, PartialEq, FromBytes, AsBytes, FromZeroes)]
+#[derive(Copy, Clone, Debug, PartialEq, DeriveFromBytes, DeriveAsBytes, FromZeroes)]
 #[repr(transparent)]
 pub struct u128x1_generic([u128; 1]);
 
